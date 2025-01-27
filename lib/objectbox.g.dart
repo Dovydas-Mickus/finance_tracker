@@ -14,44 +14,44 @@ import 'package:objectbox/internal.dart'
 import 'package:objectbox/objectbox.dart' as obx;
 import 'package:objectbox_flutter_libs/objectbox_flutter_libs.dart';
 
-import 'model/finance.dart';
+import 'model/finance_record.dart';
 
 export 'package:objectbox/objectbox.dart'; // so that callers only have to import this file
 
 final _entities = <obx_int.ModelEntity>[
   obx_int.ModelEntity(
-      id: const obx_int.IdUid(1, 6848836759763334187),
-      name: 'Finance',
-      lastPropertyId: const obx_int.IdUid(6, 3588818973757310965),
+      id: const obx_int.IdUid(1, 7525104065828514012),
+      name: 'FinanceRecord',
+      lastPropertyId: const obx_int.IdUid(6, 7325559714076800414),
       flags: 0,
       properties: <obx_int.ModelProperty>[
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(1, 4953425023616734634),
+            id: const obx_int.IdUid(1, 2671073299564611415),
             name: 'id',
             type: 6,
-            flags: 1),
+            flags: 129),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(2, 6468381500407579827),
+            id: const obx_int.IdUid(2, 2896538116824796329),
             name: 'title',
             type: 9,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(3, 6305122104234623543),
+            id: const obx_int.IdUid(3, 561381576422496090),
             name: 'amount',
             type: 8,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(4, 7927340865975087155),
+            id: const obx_int.IdUid(4, 3177863483436236437),
             name: 'type',
-            type: 9,
+            type: 6,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(5, 6126964246037313590),
+            id: const obx_int.IdUid(5, 8042777112879771129),
             name: 'category',
-            type: 9,
+            type: 6,
             flags: 0),
         obx_int.ModelProperty(
-            id: const obx_int.IdUid(6, 3588818973757310965),
+            id: const obx_int.IdUid(6, 7325559714076800414),
             name: 'date',
             type: 10,
             flags: 0)
@@ -95,7 +95,7 @@ Future<obx.Store> openStore(
 obx_int.ModelDefinition getObjectBoxModel() {
   final model = obx_int.ModelInfo(
       entities: _entities,
-      lastEntityId: const obx_int.IdUid(1, 6848836759763334187),
+      lastEntityId: const obx_int.IdUid(1, 7525104065828514012),
       lastIndexId: const obx_int.IdUid(0, 0),
       lastRelationId: const obx_int.IdUid(0, 0),
       lastSequenceId: const obx_int.IdUid(0, 0),
@@ -108,24 +108,22 @@ obx_int.ModelDefinition getObjectBoxModel() {
       version: 1);
 
   final bindings = <Type, obx_int.EntityDefinition>{
-    Finance: obx_int.EntityDefinition<Finance>(
+    FinanceRecord: obx_int.EntityDefinition<FinanceRecord>(
         model: _entities[0],
-        toOneRelations: (Finance object) => [],
-        toManyRelations: (Finance object) => {},
-        getId: (Finance object) => object.id,
-        setId: (Finance object, int id) {
+        toOneRelations: (FinanceRecord object) => [],
+        toManyRelations: (FinanceRecord object) => {},
+        getId: (FinanceRecord object) => object.id,
+        setId: (FinanceRecord object, int id) {
           object.id = id;
         },
-        objectToFB: (Finance object, fb.Builder fbb) {
+        objectToFB: (FinanceRecord object, fb.Builder fbb) {
           final titleOffset = fbb.writeString(object.title);
-          final typeOffset = fbb.writeString(object.type);
-          final categoryOffset = fbb.writeString(object.category);
           fbb.startTable(7);
           fbb.addInt64(0, object.id);
           fbb.addOffset(1, titleOffset);
           fbb.addFloat64(2, object.amount);
-          fbb.addOffset(3, typeOffset);
-          fbb.addOffset(4, categoryOffset);
+          fbb.addInt64(3, object.type);
+          fbb.addInt64(4, object.category);
           fbb.addInt64(5, object.date.millisecondsSinceEpoch);
           fbb.finish(fbb.endTable());
           return object.id;
@@ -139,13 +137,13 @@ obx_int.ModelDefinition getObjectBoxModel() {
               .vTableGet(buffer, rootOffset, 6, '');
           final amountParam =
               const fb.Float64Reader().vTableGet(buffer, rootOffset, 8, 0);
-          final typeParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 10, '');
-          final categoryParam = const fb.StringReader(asciiOptimization: true)
-              .vTableGet(buffer, rootOffset, 12, '');
+          final typeParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 10, 0);
+          final categoryParam =
+              const fb.Int64Reader().vTableGet(buffer, rootOffset, 12, 0);
           final dateParam = DateTime.fromMillisecondsSinceEpoch(
               const fb.Int64Reader().vTableGet(buffer, rootOffset, 14, 0));
-          final object = Finance(
+          final object = FinanceRecord(
               id: idParam,
               title: titleParam,
               amount: amountParam,
@@ -160,29 +158,29 @@ obx_int.ModelDefinition getObjectBoxModel() {
   return obx_int.ModelDefinition(model, bindings);
 }
 
-/// [Finance] entity fields to define ObjectBox queries.
-class Finance_ {
-  /// See [Finance.id].
+/// [FinanceRecord] entity fields to define ObjectBox queries.
+class FinanceRecord_ {
+  /// See [FinanceRecord.id].
   static final id =
-      obx.QueryIntegerProperty<Finance>(_entities[0].properties[0]);
+      obx.QueryIntegerProperty<FinanceRecord>(_entities[0].properties[0]);
 
-  /// See [Finance.title].
+  /// See [FinanceRecord.title].
   static final title =
-      obx.QueryStringProperty<Finance>(_entities[0].properties[1]);
+      obx.QueryStringProperty<FinanceRecord>(_entities[0].properties[1]);
 
-  /// See [Finance.amount].
+  /// See [FinanceRecord.amount].
   static final amount =
-      obx.QueryDoubleProperty<Finance>(_entities[0].properties[2]);
+      obx.QueryDoubleProperty<FinanceRecord>(_entities[0].properties[2]);
 
-  /// See [Finance.type].
+  /// See [FinanceRecord.type].
   static final type =
-      obx.QueryStringProperty<Finance>(_entities[0].properties[3]);
+      obx.QueryIntegerProperty<FinanceRecord>(_entities[0].properties[3]);
 
-  /// See [Finance.category].
+  /// See [FinanceRecord.category].
   static final category =
-      obx.QueryStringProperty<Finance>(_entities[0].properties[4]);
+      obx.QueryIntegerProperty<FinanceRecord>(_entities[0].properties[4]);
 
-  /// See [Finance.date].
+  /// See [FinanceRecord.date].
   static final date =
-      obx.QueryDateProperty<Finance>(_entities[0].properties[5]);
+      obx.QueryDateProperty<FinanceRecord>(_entities[0].properties[5]);
 }

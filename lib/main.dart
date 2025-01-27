@@ -8,6 +8,6 @@ late ObjectBox objectBox;
 void main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
-  objectBox = await ObjectBox.init(); // Initialize ObjectBox
+  objectBox = await ObjectBox.init();
   runApp(MyApp(objectBox: objectBox));
 }

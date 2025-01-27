@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class MyApp extends StatefulWidget {
   final ObjectBox objectBox;
-
+  
   const MyApp({super.key, required this.objectBox});
   
   @override

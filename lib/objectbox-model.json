@@ -4,38 +4,38 @@
   "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
   "entities": [
     {
-      "id": "1:6848836759763334187",
-      "lastPropertyId": "6:3588818973757310965",
-      "name": "Finance",
+      "id": "1:7525104065828514012",
+      "lastPropertyId": "6:7325559714076800414",
+      "name": "FinanceRecord",
       "properties": [
         {
-          "id": "1:4953425023616734634",
+          "id": "1:2671073299564611415",
           "name": "id",
           "type": 6,
-          "flags": 1
+          "flags": 129
         },
         {
-          "id": "2:6468381500407579827",
+          "id": "2:2896538116824796329",
           "name": "title",
           "type": 9
         },
         {
-          "id": "3:6305122104234623543",
+          "id": "3:561381576422496090",
           "name": "amount",
           "type": 8
         },
         {
-          "id": "4:7927340865975087155",
+          "id": "4:3177863483436236437",
           "name": "type",
-          "type": 9
+          "type": 6
         },
         {
-          "id": "5:6126964246037313590",
+          "id": "5:8042777112879771129",
           "name": "category",
-          "type": 9
+          "type": 6
         },
         {
-          "id": "6:3588818973757310965",
+          "id": "6:7325559714076800414",
           "name": "date",
           "type": 10
         }
@@ -43,7 +43,7 @@
       "relations": []
     }
   ],
-  "lastEntityId": "1:6848836759763334187",
+  "lastEntityId": "1:7525104065828514012",
   "lastIndexId": "0:0",
   "lastRelationId": "0:0",
   "lastSequenceId": "0:0",
