@@ -14,7 +14,7 @@ String _category = "Food";
 DateTime _date = DateTime.now();
 
 final List<String> _types = ["Income", "Expense"];
-final List<String> _categories = ["Food", "Travel", "Salary", "Entertainment", "Groceries"];
+final List<String> _categories = ["Food", "Travel", "Salary", "Entertainment", "Groceries", "Rent", "Taxi"];
 
 void _submitForm(BuildContext context, ObjectBox objectBox) {
   if (_formKey.currentState!.validate()) {

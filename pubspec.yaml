@@ -41,6 +41,8 @@ dependencies:
   csv: any
   path_provider: any
   permission_handler: any
+  flutter_bloc: any
+  equatable: ^2.0.0
 
 dev_dependencies:
   flutter_test:

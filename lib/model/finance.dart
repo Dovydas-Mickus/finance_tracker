@@ -26,6 +26,4 @@ class Finance {
     DateFormat dateFormat = DateFormat("yyyy-MM-dd");
     return dateFormat.format(date);
   }
-
-  
 }

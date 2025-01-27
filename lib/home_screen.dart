@@ -1,7 +1,8 @@
+
+import 'package:finance_tracker/frontend/add_finance_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:finance_tracker/model/finance.dart';
 import 'package:finance_tracker/helper/object_box.dart';
-import 'package:finance_tracker/dialogs/add_finance_dialog.dart';
 import 'package:finance_tracker/dialogs/edit_finance_record_dialog.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -157,10 +158,10 @@ class _MyHomePageState extends State<MyHomePage> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          showDialog(
-            context: context,
-            builder: (_) => AddFinanceDialog(objectBox: widget.objectBox),
+          final route = MaterialPageRoute(
+            builder: (context) => AddFinanceScreen()
           );
+          Navigator.push(context, route);
         },
       ),
     );

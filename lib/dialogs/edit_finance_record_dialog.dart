@@ -13,8 +13,7 @@ String _category = "";
 DateTime _date = DateTime.now();
 
 final List<String> _types = ["Income", "Expense"];
-final List<String> _categories = ["Food", "Travel", "Salary", "Entertainment", "Groceries"];
-
+final List<String> _categories = ["Food", "Travel", "Salary", "Entertainment", "Groceries", "Rent", "Taxi"];
 
 
 void _submitForm(BuildContext context, Finance record) {
