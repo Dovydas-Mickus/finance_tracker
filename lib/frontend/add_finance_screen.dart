@@ -85,10 +85,8 @@ class AddFinanceScreen extends StatelessWidget {
                         firstDate: DateTime(2000),
                         lastDate: DateTime(2101),
                       );
-                      if (pickedDate != null) {
-                        cubit.updateDate(pickedDate);
-                      }
-                    },
+                      cubit.updateDate(pickedDate!);
+                      },
                   ),
                   const SizedBox(height: 20),
                   ElevatedButton(

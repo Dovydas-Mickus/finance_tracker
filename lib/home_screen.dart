@@ -1,5 +1,6 @@
 import 'package:finance_tracker/frontend/add_finance_screen.dart';
 import 'package:finance_tracker/frontend/edit_finance_screen.dart';
+import 'package:finance_tracker/frontend/graphs_screen.dart';
 import 'package:finance_tracker/model/finance_record.dart';
 import 'package:flutter/material.dart';
 import 'package:finance_tracker/backend/finance_state.dart';
@@ -101,6 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 requestPermissions(context);
               },
             ),
+            
           ],
         ),
       ),
@@ -119,6 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Total income: ${calculateCurrentBudget(finances)[1].toStringAsFixed(2)}"),
               Text(
                   "Total expenses: ${calculateCurrentBudget(finances)[2].toStringAsFixed(2)}"),
+              ListTile(
+                                title: const Text('Charts'),
+                                onTap: () {
+                                  final route = MaterialPageRoute(
+                                    builder: (context) => GraphsScreen(financeRecords: finances)
+                                  );
+                                  Navigator.push(context, route);
+                                },
+                              ),
               Expanded(
                 child: ListView.builder(
                   itemCount: finances.length,
@@ -135,6 +146,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 padding: EdgeInsets.all(1.0),
                                 child: Text(finance.category.name),
                               ),
+                              
                               Padding(
                                 padding: EdgeInsets.all(1.0),
                                 child: Text(finance.type.name),
